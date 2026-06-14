@@ -4,16 +4,15 @@ module.exports = {
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
     extend: {
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
+      borderRadius: { lg: 'var(--radius)', md: 'calc(var(--radius) - 2px)', sm: 'calc(var(--radius) - 4px)' },
       fontFamily: {
-        heading:  ['var(--font-heading)'],
-        body:     ['var(--font-body)'],
-        mono:     ['var(--font-mono)'],
+        heading: ['var(--font-heading)'],
+        body: ['var(--font-body)'],
+        mono: ['var(--font-mono)'],
         terminal: ['var(--font-terminal)', 'ui-monospace', 'monospace'],
+        grotesk: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        rajdhani: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        orbitron: ['Orbitron', 'ui-sans-serif', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -28,10 +27,11 @@ module.exports = {
         ring: 'hsl(var(--ring))',
         card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
       },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+      keyframes: {
+        'accordion-down': { from: { height: '0' }, to: { height: 'var(--radix-accordion-content-height)' } },
+        'accordion-up': { from: { height: 'var(--radix-accordion-content-height)' }, to: { height: '0' } },
       },
+      animation: { 'accordion-down': 'accordion-down 0.2s ease-out', 'accordion-up': 'accordion-up 0.2s ease-out' },
     },
   },
   plugins: [require('tailwindcss-animate')],
