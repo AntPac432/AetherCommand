@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --background: 228 18% 3%;
+    --foreground: 210 18% 93%;
+    --card: 228 16% 5%;
+    --card-foreground: 210 18% 93%;
+    --popover: 228 16% 5%;
+    --popover-foreground: 210 18% 93%;
+    --primary: 188 100% 52%;
+    --primary-foreground: 228 18% 3%;
+    --secondary: 228 14% 9%;
+    --secondary-foreground: 220 14% 68%;
+    --muted: 228 14% 9%;
+    --muted-foreground: 220 10% 38%;
+    --accent: 276 100% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 348 95% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 228 14% 10%;
+    --input: 228 14% 10%;
+    --ring: 188 100% 52%;
+    --radius: 0.375rem;
+    --neon-cyan: #00EEFF;
+    --neon-violet: #C84BFF;
+    --neon-green: #3DFF5C;
+    --neon-amber: #FFC200;
+    --neon-red: #FF1F4B;
+    --surface-0: #04040A;
+    --surface-1: #080810;
+    --surface-2: #0D0D18;
+    --surface-3: #12121F;
+    --surface-4: #181826;
+    --font-heading: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'DM Mono', 'Space Mono', ui-monospace, monospace;
+    --font-terminal: 'Space Mono', ui-monospace, monospace;
+  }
+  .dark {
+    --background: 228 18% 3%;
+    --foreground: 210 18% 93%;
+    --card: 228 14% 6%;
+    --card-foreground: 210 18% 93%;
+    --popover: 228 14% 6%;
+    --popover-foreground: 210 18% 93%;
+    --primary: 188 100% 52%;
+    --primary-foreground: 228 18% 3%;
+    --secondary: 228 12% 11%;
+    --secondary-foreground: 220 14% 68%;
+    --muted: 228 12% 11%;
+    --muted-foreground: 220 10% 42%;
+    --accent: 276 100% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 348 95% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 228 12% 11%;
+    --input: 228 12% 11%;
+    --ring: 188 100% 52%;
+  }
+}
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-body; background-color: #04040A; overflow: hidden; }
+  ::-webkit-scrollbar { width: 3px; height: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,238,255,0.18); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(0,238,255,0.42); }
+}
+@layer utilities {
+  .glow-cyan { box-shadow: 0 0 10px rgba(0,238,255,0.25), 0 0 24px rgba(0,238,255,0.08); }
+  .glow-cyan-strong { box-shadow: 0 0 18px rgba(0,238,255,0.55), 0 0 48px rgba(0,238,255,0.18); }
+  .glow-violet { box-shadow: 0 0 14px rgba(200,75,255,0.32), 0 0 32px rgba(200,75,255,0.10); }
+  .glow-green { box-shadow: 0 0 14px rgba(61,255,92,0.32), 0 0 36px rgba(61,255,92,0.10); }
+  .text-glow-cyan { text-shadow: 0 0 10px rgba(0,238,255,0.75), 0 0 24px rgba(0,238,255,0.32); }
+  .text-glow-violet { text-shadow: 0 0 10px rgba(200,75,255,0.75), 0 0 24px rgba(200,75,255,0.32); }
+  .font-orbitron { font-family: 'Orbitron', ui-sans-serif, sans-serif; }
+  .font-grotesk { font-family: 'Space Grotesk', ui-sans-serif, sans-serif; }
+  .font-rajdhani { font-family: 'Space Grotesk', ui-sans-serif, sans-serif; }
+  .font-mono { font-family: 'DM Mono', 'Space Mono', ui-monospace, monospace; }
+  .font-terminal { font-family: 'Space Mono', ui-monospace, monospace; }
+  .surface-0 { background-color: #04040A; }
+  .surface-1 { background-color: #080810; }
+  .surface-2 { background-color: #0D0D18; }
+  .surface-3 { background-color: #12121F; }
+  .surface-4 { background-color: #181826; }
+  .bg-galaxy {
+    background-color: #04040A;
+    background-image: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0,80,120,0.22) 0%, transparent 65%), radial-gradient(ellipse 55% 40% at 80% 70%, rgba(120,0,180,0.16) 0%, transparent 60%);
+  }
+}
+@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes pulse-glow-cyan { 0%, 100% { box-shadow: 0 0 8px rgba(0,238,255,0.45); } 50% { box-shadow: 0 0 20px rgba(0,238,255,0.80); } }
+@keyframes flicker { 0%, 100% { opacity: 1; } 93% { opacity: 0.6; } 94% { opacity: 1; } }
+.shimmer-bar::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, transparent 0%, rgba(0,238,255,0.18) 50%, transparent 100%); animation: shimmer 1.4s infinite; }
+.animate-pulse-glow { animation: pulse-glow 1.5s ease-in-out infinite; }
+.animate-pulse-glow-cyan { animation: pulse-glow-cyan 2s ease-in-out infinite; }
+.animate-flicker { animation: flicker 6s ease-in-out infinite; }
+.scanlines::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 9999; }
