@@ -4,7 +4,7 @@ import { queryClientInstance } from '@/lib/query-client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CommandCenter from './pages/CommandCenter';
 
-function App() {
+export default function App() {
   return (
     <QueryClientProvider client={queryClientInstance}>
       <Router>
@@ -16,5 +16,3 @@ function App() {
     </QueryClientProvider>
   );
 }
-
-export default App;
