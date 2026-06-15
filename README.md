@@ -1,40 +1,39 @@
-# AetherCommand
+# AetherCommand — Standalone
 
-**Game Director Command Center** — autonomous AI agent orchestration for Unreal Engine 5 development.
+Game Director Command Center. **No Base44 required.** Runs 100% locally.
 
-## Quick Start
+## Stack
+- **Frontend:** React 18 + Vite + Tailwind CSS + Framer Motion
+- **Backend:** Node.js + Express (replaces Base44 functions)
+- **DB:** SQLite via better-sqlite3 (replaces Base44 entities)
+- **AI:** OpenRouter (GPT-4o / Claude), Groq (fast routing)
+- **3D:** Tripo3D, **Images:** StabilityAI, **Voice:** ElevenLabs
+
+## Quick start
 
 ```bash
 git clone https://github.com/AntPac432/AetherCommand
 cd AetherCommand
-cp .env.example .env          # fill in VITE_BASE44_APP_ID
+cp .env.example .env          # fill in your API keys
 npm install
-npm run dev
+npm run dev                   # starts Vite (port 5173) + Express (port 3001)
 ```
 
-Open http://localhost:5173
-
-## Stack
-- **Frontend:** React 18 + Vite + Tailwind CSS + Framer Motion
-- **Backend:** Base44 (serverless Deno functions, entity DB, auth)
-- **AI:** OpenRouter (GPT-4o / Claude 3.5), Groq (fast routing)
-- **3D:** Tripo3D (text-to-GLB mesh generation)
-- **Images:** StabilityAI (texture & concept art)
-- **VCS:** GitHub API (commit feed, file browser)
-
-## Agents
-| Agent | Role |
+## .env keys
+| Key | Where to get it |
 |---|---|
-| Odysseus | Main AI orchestrator — routes commands to the fleet |
-| Host | Local PC agent (shell, git, builds via ngrok) |
-| Tripo3D | AI 3D mesh generation |
-| Cursor | Code auditor |
-| ElevenLabs | Voice / NPC dialogue |
-| StabilityAI | Texture & concept art |
+| `OPENROUTER_API_KEY` | https://openrouter.ai/keys |
+| `GROQ_API_KEY` | https://console.groq.com/keys |
+| `GITHUB_TOKEN` | GitHub → Settings → Developer settings → PAT |
+| `TRIPO3D_API_KEY` | https://platform.tripo3d.ai |
+| `STABILITY_API_KEY` | https://platform.stability.ai |
+| `GOOGLE_API_KEY` | Google AI Studio → API keys |
+| `ELEVENLABS_API_KEY` | https://elevenlabs.io/app/settings/api-keys |
+| `WEBHOOK_TOKEN` | Any random string you choose |
 
-## Desktop App (Tauri)
+## Desktop app (Tauri)
 ```bash
 npm install --save-dev @tauri-apps/cli
 npx tauri init
-npx tauri build    # produces .exe / .dmg / .deb
+npx tauri build
 ```
