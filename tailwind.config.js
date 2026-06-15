@@ -11,7 +11,6 @@ module.exports = {
         mono: ['var(--font-mono)'],
         terminal: ['var(--font-terminal)', 'ui-monospace', 'monospace'],
         grotesk: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        rajdhani: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         orbitron: ['Orbitron', 'ui-sans-serif', 'sans-serif'],
       },
       colors: {
